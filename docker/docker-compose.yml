@@ -1,0 +1,80 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: laravel-database
+    restart: always
+    ports:
+      - 5432:5432
+    networks:
+      - default
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: laravel
+      TZ: 'GMT+7'
+      PGTZ: 'GMT+7'
+
+  pgadmin:
+    #image: dpage/pgadmin4
+    image: pgadmin:latest
+    container_name: laravel-pgadmin
+    restart: always
+    ports:
+      - 5080:80
+      - 5443:443
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+
+  php-fpm:
+    build: ./php-fpm
+    #image: laravel-php-fpm:latest
+    container_name: laravel-php-fpm
+    depends_on:
+      - postgres
+    ports:
+      - 59000:9000
+    networks:
+      - default
+    volumes:
+      - ./../laravel/:/var/www
+    env_file:
+      - ./../laravel/.env
+    #environment:
+      #- APP_ENV=${APP_ENV}
+      #- APP_SECRET=${APP_SECRET}
+      #- DATABASE_URL=${DATABASE_URL}
+      #- DB_CONNECTION=${DB_CONNECTION}
+      #- DB_HOST=${DB_HOST}
+      #- DB_PORT=${DB_PORT}
+      #- DB_DATABASE=${DB_DATABASE}
+      #- DB_USERNAME=${DB_USERNAME}
+      #- DB_PASSWORD=${DB_PASSWORD}
+
+  nginx:
+    #build: ./nginx
+    image: laravel-nginx:latest
+    container_name: laravel-nginx
+    depends_on:
+      - php-fpm
+    ports:
+      - 8080:80
+      - 8443:443
+    networks:
+      - default
+    volumes:
+      - ./../laravel/:/var/www
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites/:/etc/nginx/sites-available
+      - ./nginx/conf.d/:/etc/nginx/conf.d
+      - ./logs:/var/log
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  data:
+    driver: local
