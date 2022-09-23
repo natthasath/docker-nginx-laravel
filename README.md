@@ -1,13 +1,16 @@
-### Getting started
+# 🎉 Docker Nginx Postgres Laravel
 
-```bash
-cd docker/ && docker-compose up --build
-```
+Document is `Web App` project include nginx, postgres and laravel on docker
 
-To access directly from local host the PostgreSQL database container
+![version](https://img.shields.io/badge/version-1.0-blue)
+![rating](https://img.shields.io/badge/rating-★★★★★-yellow)
+![uptime](https://img.shields.io/badge/uptime-100%25-brightgreen)
 
-```bash
+### 🥈 Run
+
+- [http://localhost:8080/](http://localhost:8080/) username : `admin` password : `admin`
+
+```shell
+docker-compose up --build
 psql postgresql://postgres:password@127.0.0.1:15432/dbtest
 ```
-
-Read this post on dev.to for more: https://dev.to/nicolasbonnici/how-to-build-a-clean-docker-symfony-5-2-php8-postegresql-nginx-project-3l5g
