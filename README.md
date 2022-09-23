@@ -8,8 +8,8 @@ Document is `Web App` project include nginx, postgres and laravel on docker
 
 ### 🥈 Run
 
-- [http://localhost:8080/](http://localhost:8080/) (NGINX)
-- [http://localhost:5080/](http://localhost:5080/) (PGADMIN) username : `admin` password : `admin`
+- [http://localhost:8080/](http://localhost:8080/) NGINX
+- [http://localhost:5080/](http://localhost:5080/) PGADMIN > username : `admin` password : `admin`
 
 ```shell
 docker-compose up --build
