@@ -16,8 +16,7 @@ services:
       PGTZ: 'GMT+7'
 
   pgadmin:
-    #image: dpage/pgadmin4
-    image: pgadmin:latest
+    image: dpage/pgadmin4
     container_name: laravel-pgadmin
     restart: always
     ports:
@@ -29,7 +28,6 @@ services:
 
   php-fpm:
     build: ./php-fpm
-    #image: laravel-php-fpm:latest
     container_name: laravel-php-fpm
     depends_on:
       - postgres
