@@ -1,6 +1,6 @@
 # 🎉 Docker Nginx Postgres Laravel
 
-Document is `Web App` project include nginx, postgres and laravel on docker
+Nginx, Postgres and Laravel are open-source tools used to build and deploy web applications. Nginx serves the web application, Postgres stores data, and Laravel provides an easy way to build and organize the application logic.
 
 ![version](https://img.shields.io/badge/version-1.0-blue)
 ![rating](https://img.shields.io/badge/rating-★★★★★-yellow)
