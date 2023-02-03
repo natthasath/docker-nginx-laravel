@@ -6,7 +6,7 @@ Nginx, Postgres and Laravel are open-source tools used to build and deploy web a
 ![rating](https://img.shields.io/badge/rating-★★★★★-yellow)
 ![uptime](https://img.shields.io/badge/uptime-100%25-brightgreen)
 
-### 🥈 Run
+### 🏆 Run
 
 - [http://localhost:8080/](http://localhost:8080/) NGINX
 - [http://localhost:5080/](http://localhost:5080/) PGADMIN > username : `admin` password : `admin`
