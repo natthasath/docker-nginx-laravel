@@ -13,5 +13,9 @@ Nginx, Postgres and Laravel are open-source tools used to build and deploy web a
 
 ```shell
 docker-compose up --build
+```
+### 🚀 Setup
+
+```shell
 psql postgresql://postgres:password@127.0.0.1:15432/dbtest
 ```
