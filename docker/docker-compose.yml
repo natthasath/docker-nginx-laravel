@@ -70,8 +70,10 @@ services:
 
 networks:
   default:
+    name: docker_nginx_postgress_laravel_network
     driver: bridge
 
 volumes:
   data:
+    name: docker_nginx_postgress_laravel_data
     driver: local
